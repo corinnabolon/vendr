@@ -25,11 +25,23 @@ export class SnacksController {
 
     AppState.on("money", _drawMoney)
   }
+  checkButtons() {
+    AppState.snacks.forEach(snack => {
+      if (AppState.money >= snack.price) {
+        snack.buyButtonDisabled = false
+      } else {
+        snack.buyButtonDisabled = true
+      }
+      _drawSnacksCatalog()
+    })
+  }
 
   addMoney() {
     console.log("Money added!")
     snacksService.addMoney()
+    this.checkButtons()
   }
+
 
   buySnack(kind) {
     console.log("Test", kind)
@@ -39,6 +51,7 @@ export class SnacksController {
       return
     } else {
       snacksService.buySnack(foundKind.price)
+      this.checkButtons()
     }
   }
 }

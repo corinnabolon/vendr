@@ -3,6 +3,7 @@ export class Snack {
     this.name = data.name
     this.price = data.price
     this.imgUrl = data.imgUrl
+    this.buyButtonDisabled = true
   }
 
   get CardTemplate() {
@@ -14,7 +15,16 @@ export class Snack {
       <p>${this.name}</p>
       <p>$${this.price.toFixed(2)}</p>
     </div>
-    <button onclick="app.SnacksController.buySnack('${this.name}')" class="btn buy-button mb-3 fs-3" type="button">Buy</button>
+    <button onclick="app.SnacksController.buySnack('${this.name}')" class="btn buy-button mb-3 fs-3" type="button" ${this.disableButton}>Buy</button>
   </div>`
   }
+
+  get disableButton() {
+    if (this.buyButtonDisabled) {
+      return "disabled"
+    } else {
+      return ""
+    }
+  }
+
 }

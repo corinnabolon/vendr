@@ -1,0 +1,33 @@
+/* BASIC STYLES HERE */
+:root {
+  --background-color: #FFF5E0;
+  --text-color: #141E46;
+  --secondary-color: #FF6969;
+  --tertiary-color: #C70039;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.snack-img {
+  width: auto;
+  height: 15vh;
+}
+
+.wallet {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 2px solid var(--tertiary-color);
+}
+
+.snack-box {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: 2px solid var(--tertiary-color);
+}
+
+.buy-button {
+  background-color: var(--tertiary-color);
+  color: var(--text-color);
+}
